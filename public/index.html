@@ -16,14 +16,15 @@
     <script type="text/babel">
 
       var data = [
-        {id: 1, author: "Jered Spears", text: "This is the first comment"}
+        {id: 1, author: "Jered Spears", text: "This is the first comment."},
+        {id: 2, author: "Jered S", text: "This is the *second* comment."}
       ]
       var CommentBox = React.createClass({
         render: function(){
           return (
             <div className='commentBox'>
                 <h1>Comments</h1>
-                <CommentList />
+                <CommentList data={this.props.data}/>
                 <CommentForm />
             </div>
            );
@@ -64,7 +65,7 @@
             );
         }
       });
-      ReactDOM.render(<CommentBox />,
+      ReactDOM.render(<CommentBox data={data}/>,
         document.getElementById('content')
       );
     </script>
